@@ -1,0 +1,39 @@
+<!doctype html>
+<html ng-app="stockApp">
+  <head>
+    <script src="vendor/angular.min.js"></script>
+    <!-- AngularJS -->
+    <script src="js/app.js"></script>
+    <script src="js/stock.js"></script>
+    <script src="js/filter.js"></script>
+    <!-- Stylesheet  -->
+    <link rel="stylesheet" href="styles/app.css">
+  </head>
+  <body>
+    <h2>Listado de Productos</h2>
+    <p>Buscar: <input type="text" ng-model="searchProduct"></p>
+    <div ng-controller="StockController">
+        <table border="1"> 
+            <thead>
+                <tr>
+                    <th>Codigo</th>
+                    <th>Descripcion</th>
+                    <th>Precio</th>
+                    <th>Imagen</th>
+                    <th>Notas</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="product in products | filter: searchProduct | orderBy:'price'">
+                    <td>{{product.code}}</td>
+                    <td>{{product.description | uppercase}}</td>
+                    <td>{{product.price | currency}}</td>
+                    <td><img ng-src="img/{{product.picture}}" width="100px" height="100px" ></td>
+                    <td>{{product.notes  | myFormat}}</td>
+                </tr>      
+            </tbody>
+        </table>
+        <a href="add.html">Agregar producto</a>
+    </div>
+  </body>
+</html>
