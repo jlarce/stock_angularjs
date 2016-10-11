@@ -1,4 +1,6 @@
+'use strict';
 var app = angular.module('stockApp');
+
 app.filter('myFormat', function() {
     return function(x) {
         var i, c, txt = "";
@@ -10,5 +12,15 @@ app.filter('myFormat', function() {
             txt += c;
         }
         return txt;
+    };
+});
+
+app.filter('productCode', function() {
+    return function(code,separador) {
+        var out = code || '';
+        var nomb = out.substring(0,2);
+        var id =  out.substring(2,out.length);
+        out = nomb + separador + id;
+        return out;
     };
 });
