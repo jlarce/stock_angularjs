@@ -1,35 +1,63 @@
 <!doctype html>
 <html ng-app="stockApp">
   <head>
+    <!-- Load bootstrap -->
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+
     <script src="vendor/angular.min.js"></script>
     
-    <!-- AngularJS -->
+    <!-- Load AngularJS -->
     <script src="js/app.js"></script>
     <script src="js/filter.js"></script>    
     <script src="js/stock.js"></script>
-
-    <!-- StyleSheet -->
-    <link rel="stylesheet" href="styles/app.css">
-
   </head>
   <body>
-    <h2>Nuevo Productos</h2>
-
-    <div ng-controller="StockController">
-        <form name="productForm" novalidate>
-            
-            <p>
-                Codigo:<br>
-                <input type="text" name="code" ng-model="code" required>
-                <span style="color:red" ng-show="productForm.code.$dirty && productForm.code.$invalid">
-                <span ng-show="productForm.code.$error.required">Code is required.</span>
-                </span>
-            </p>
-
-            <p>
-                <input type="submit" ng-disabled="productForm.code.$dirty && productForm.code.$invalid">
-            </p>
-        </form>
+    <div class="container">
+        <div class="col-sm-8 col-sm-offset-2">
+            <div class="page-header"><h2>Nuevo Producto</h2></div>
+            <div ng-controller="StockController">
+                <form name="productForm" novalidate>
+                    
+                    <p class="form-group">
+                        <label>C&oacute;digo:</label>
+                        <input class="form-control" type="text" name="code" ng-model="code" required><br/>
+                        <span style="color:red" ng-show="productForm.code.$dirty && productForm.code.$invalid">
+                            <span ng-show="productForm.code.$error.required">El c&oacute;digo es requerido.</span>
+                        </span>
+                    </p>
+                    <p class="form-group">
+                        <label>Descripci&oacute;n:</label>
+                        <input class="form-control" type="text" name="description" ng-model="description" required><br/>
+                        <span style="color:red" ng-show="productForm.description.$dirty && productForm.description.$invalid">
+                            <span ng-show="productForm.description.$error.required">La descripci&oacute;n es requerida.</span>
+                        </span>
+                    </p>
+                    <p class="form-group">
+                        <label>Precio:</label>
+                        <input class="form-control" type="text" name="price" ng-model="price" required><br/>
+                        <span style="color:red" ng-show="productForm.price.$dirty && productForm.price.$invalid">
+                            <span ng-show="productForm.price.$error.required">El precio es requerido.</span>
+                            <span ng-show="productForm.price.$error.number">El precio ingresado no es valido.</span>
+                        </span>
+                    </p>
+                    <p class="form-group">
+                        <label>Activo:</label>
+                        <input type="checkbox" name="active" ng-model="active">
+                    </p>
+                    <p class="form-group"> 
+                        <label>Notas:</label>
+                        <textarea class="form-control" placeholder="Ingrese aqu&iacute las notas correspondientes al producto" name="notes" ng-model="notes"></textarea>
+                    </p>
+                    <p class="form-group">
+                        <label>Imagen del producto:</label>
+                        <input class="form-control" type="file" name="picture" ng-model="picture" />
+                    </p>     
+                    <p>
+                        <input class="btn btn-primary" type="submit" value="Cargar producto" ng-disabled="productForm.code.$dirty && productForm.code.$invalid" onclick="">
+                    </p>
+                </form>
+            </div>
+        </div>
     </div>
   </body>
 </html>
