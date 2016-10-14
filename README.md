@@ -1,1 +1,1 @@
-# stock_angularjs  ---modificado
+# stock_angularjs
