@@ -1,22 +1,70 @@
 <!doctype html>
 <html ng-app="stockApp">
   <head>
-    <!-- Load bootstrap -->
-    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Curso de AngularJS - Intertron Education">
+    <meta name="author" content="Gustavo Mena">
 
+    <title>Sistema de Stock</title>
+  
+    <!-- AngularJS -->
     <script src="vendor/angular.min.js"></script>
     <script src="vendor/angular-route.js"></script>
-    <!-- AngularJS -->
+    
+	<!-- Auth0: https://github.com/auth0/auth0-angular -->
+	<script type="text/javascript" src="vendor/lock-9.0.js"></script>
+	<script type="text/javascript" src="vendor/auth0-angular-4.2.6.js"></script>
+	
+    <!-- AngularJS App and Modules -->
     <script src="js/app.js"></script>
-    <script src="js/stock/stock.js"></script>
-    <script src="js/shared/filter.js"></script>
+	
+	<!-- AngularJS Config. Routing -->
+	<script src="js/config.js"></script>
+	
+	<!-- AngularJS Root Controller -->
+	<script src="js/root.js"></script>
+	
+	<!-- Shared JS Assets -->
+    <script src="js/shared/filter.js"></script>    
+	
+	<!-- Modulo Account -->
+	<script src="js/account/account.js"></script>    
+    
+	<!-- Modulo Dashboard -->
+	<script src="js/dashboard/dashboard.js"></script>    
+	
+	<!-- Modulo Stock -->
+	<script src="js/stock/stock.js"></script>
+	<script src="js/stock/config.js"></script>
     <script src="js/stock/directive.js"></script>
-    <!-- Stylesheet  -->
-    <link rel="stylesheet" href="styles/app.css">
-  </head>
-  <body>
-    <h2>Sistema de Stock</h2>
+	<script src="js/stock/service.js"></script>
+	
 
+    <!-- StyleSheet -->
+    <link rel="stylesheet" href="styles/app.css">
+	
+	<!-- Angular Material -->
+	<!-- https://material.angularjs.org/latest/getting-started -->
+	
+  </head>
+  
+  <body ng-controller="RootController">
+	
+	<!-- Directiva ng-Include -->
+	<div ng-include src="'partials/shared/header.html'"></div>
+    
+        
+	<!-- Utilización de la directiva ngView para renderizar la vista parcial -->	
     <div ng-view></div>
+	
+	<script type="text/javascript">
+		console.log("angular object",angular);
+	</script>
+	
+	<!-- Directiva ng-Include -->
+	<div ng-include src="'partials/shared/footer.html'"></div>
+
   </body>
 </html>

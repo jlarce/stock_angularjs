@@ -15,6 +15,21 @@ app.filter('myFormat', function() {
     };
 });
 
+app.filter('reverse', function() {
+  return function(input, uppercase) {
+    input = input || '';
+    var out = '';
+    for (var i = 0; i < input.length; i++) {
+      out = input.charAt(i) + out;
+    }
+    // conditional based on optional argument
+    if (uppercase) {
+      out = out.toUpperCase();
+    }
+    return out;
+  };
+});
+
 app.filter('productCode', function() {
     return function(code,separador) {
         var out = code || '';
@@ -23,4 +38,20 @@ app.filter('productCode', function() {
         out = nomb + separador + id;
         return out;
     };
+});
+
+app.filter('searchCode', function() {
+  return function(items,search) {
+    var filtered = [];
+    if(!search){return items;}
+    angular.forEach(items, function(item) {
+
+    	if(angular.lowercase(item.title).indexOf(angular.lowercase(search))!=-1)
+    	{
+    		filtered.push(item);
+    	}
+      
+    });
+   return filtered;
+  };
 });
