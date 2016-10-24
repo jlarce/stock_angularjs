@@ -6,7 +6,7 @@
                 
                 <p class="form-group">
                     <label>C&oacute;digo:</label>
-                    <input class="form-control" type="text" name="code" ng-model="code" pattern="[A-Za-z]{2}[0-9]{4}" ng-required=""><br/>
+                    <input class="form-control" type="text" name="code" ng-model="code" pattern="[A-Za-z]{2}[0-9]{4}" required><br/>
                     <span style="color:red" ng-show="productForm.code.$dirty && productForm.code.$invalid">
                         <span ng-show="productForm.code.$error.required">El c&oacute;digo es requerido.</span>
                     </span>
@@ -39,7 +39,7 @@
                     <!--<select name="vendor" ng-model="vendor" ng-options="item as item.name for item in vendors track by item.id" ></select>-->
                     {{select}}
                     <select name="vendor" class="form-control" ng-model="vendor" ng-options="vendor.name for vendor in vendors" ng-selected="seleted">
-                        <option value="">-- choose vendor --</option>
+                        <option value="">-- seleccionar fabricante --</option>
                     </select>                
                 </p> 
                 <p class="form-group">
@@ -47,7 +47,7 @@
                     <input class="form-control" type="file" name="picture" ng-model="picture" />
                 </p>     
                 <p>
-                    <input class="btn btn-primary" type="submit" value="Cargar producto" ng-disabled="productForm.code.$dirty && productForm.code.$invalid" onclick="">
+                    <input class="btn btn-primary" type="submit" value="Cargar producto" ng-disabled="productForm.code.$dirty && productForm.code.$invalid">
                 </p>
             </form>
         </div>

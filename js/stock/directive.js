@@ -3,7 +3,7 @@
 (function(){
 	var app = angular.module("stockModule");
 
-	app.directive("botoneraDirective", ['stockGlobals', function(stockGlobals) {
+	app.directive("crudActions", ['stockGlobals', function(stockGlobals) {
 		
 		return {
 			controller: function($scope, stockGlobals){
@@ -14,11 +14,11 @@
 		};
 	}]);
 
-	app.directive("grillaDeProductos", function () {
+	app.directive("productGrid", function () {
 		return {
 			replace: true,
 			restrict: 'E',// //E = element, A = attribute, C = class, M = comment   
-			templateUrl: 'partials/stock/grilla-producto.html', // Es necesario correr en un servidor la aplicación para que funcionen las vistas parciales,
+			templateUrl: 'partials/stock/data-grid.html', // Es necesario correr en un servidor la aplicación para que funcionen las vistas parciales,
 			controller: function($scope){
 				//console.log("do stuff");
 
@@ -27,6 +27,3 @@
 		};
 	});
 })();  // Esto () significa que estas llamando a la funcion anónima
-
-
- 

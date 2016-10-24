@@ -1,21 +1,6 @@
 'use strict';
-var app = angular.module('stockApp');
-
-app.filter('myFormat', function() {
-    return function(x) {
-        var i, c, txt = "";
-        for (i = 0; i < x.length; i++) {
-            c = x[i];
-            if (i % 2 == 0) {
-                c = c.toUpperCase();
-            }
-            txt += c;
-        }
-        return txt;
-    };
-});
-
-app.filter('reverse', function() {
+var app = angular.module('stockApp')
+.filter('reverse', function() {
   return function(input, uppercase) {
     input = input || '';
     var out = '';
@@ -28,19 +13,18 @@ app.filter('reverse', function() {
     }
     return out;
   };
-});
-
-app.filter('productCode', function() {
-    return function(code,separador) {
-        var out = code || '';
-        var nomb = out.substring(0,2);
-        var id =  out.substring(2,out.length);
-        out = nomb + separador + id;
-        return out;
-    };
-});
-
-app.filter('searchCode', function() {
+})
+.filter('productCode', function(){
+  return function(input, lowercase) {
+    input = input || '';
+    var out = input;
+    if (lowercase) {
+      out = out.toLowerCase();
+    }
+    return out;
+  };
+})
+.filter('searchCode', function() {
   return function(items,search) {
     var filtered = [];
     if(!search){return items;}

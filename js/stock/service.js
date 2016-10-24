@@ -21,6 +21,7 @@ angular.module('stockModule')
                       return response;
                   });
     };
+
     //Metodo para actualizar producto
     service.UpdateProduct = function (product) {
         return $http.put(serviceBase + "/api/product", product)
