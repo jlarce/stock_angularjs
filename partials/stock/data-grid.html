@@ -1,15 +1,15 @@
 <table class="table table-striped"> 
     <thead>
         <tr>
-            <th>Codigo</th>
-            <th>Descripcion</th>
+            <th>C&oacute;digo</th>
+            <th>Descripci&oacute;n</th>
             <th>Precio</th>
-			<th>Stock</th>
+            <th>Stock</th>
 			<th>Fecha Alta</th>
-            <th>Foto</th>
+            <th>Imagen</th>
             <th>Fabricante</th>
             <th>Notas</th>
-			<th>Acciones</th>
+            <th>Acciones</th>
         </tr>
     </thead>
     <tbody>
@@ -21,7 +21,7 @@
 			<td>{{product.added_date | date:'dd/MM/yyyy'}}</td>
             <td><img ng-src="img/products/{{product.picture}}" width="100px" height="100px"></td>
             <td>{{product.vendor}}</td>
-            <td>{{product.notes | reverse}}</td>
+            <td>{{product.notes | myFormat}}</td>
 			<td>
 			<a class="btn btn-primary" href="/#/stock/edit/{{product.code}}">Editar</a> |
 			<a class="btn btn-success" href="/#/stock/publish/{{product.code}}">Publicar</a> |
